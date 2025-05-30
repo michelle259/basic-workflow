@@ -1,17 +1,27 @@
 name: Test Github Actions variable-04
 run-name: Test Github Actions variable-04
+
 on:
-   workflow_dispatch:
+  workflow_dispatch:
     inputs:
       name:
         description: '이름'
         required: true
         default: 'Input'
-    
+
 jobs:
   input-data:
     runs-on: ubuntu-latest
+    outputs:
+      upper_name: ${{ steps.uppercase.outputs.result }}
     steps:
       - name: print input data
-        run: echo "Hello, ${{ github.event.inputs.name }}"
-      
+        id: uppercase
+        run: echo "result=$(echo '${{ github.event.inputs.name }}' | tr 'a-z' 'A-Z')" >> $GITHUB_OUTPUT
+
+  output-data:
+    needs: input-data
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print output data
+        run: echo "Hello ${{ needs.input-data.outputs.upper_name }}"
