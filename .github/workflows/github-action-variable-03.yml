@@ -1,0 +1,11 @@
+name: Test Github Actions variable-03
+run-name: Test Github Actions variable-03
+on:
+  push
+
+jobs:
+  check-vars-context:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Hello, ${{ $vars.Var_test }}"
+    
