@@ -1,7 +1,7 @@
 name: Test Github Actions variable-03
 run-name: Test Github Actions variable-03
 on:
-  push
+   workflow_dispatch
 
 jobs:
   check-vars-context:
