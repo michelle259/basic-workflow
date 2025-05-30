@@ -9,6 +9,7 @@ jobs:
     steps:
       - name: action ls
         run: ls -al
+        
       - name: github actions checkout
         uses: actions/checkout@v4
-        run : ls-al
+      - run : ls -al
