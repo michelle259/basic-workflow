@@ -1,0 +1,14 @@
+name: Test Github actions checkout-01
+run-name: Run Github actions checkout
+on:
+  push
+
+jobs:
+  checkout:
+    runs-on: ubuntu-latest
+    steps:
+      - name: action ls
+        run: ls -al
+      - name: github actions checkout
+        uses: actions/checkout@v4
+      - run : ls-al
