@@ -7,5 +7,5 @@ jobs:
   check-vars-context:
     runs-on: ubuntu-latest
     steps:
-      - name: "Hello, ${{ $vars.var_test }}"
+      - name: "Hello, ${{ vars.var_test }}"
     
